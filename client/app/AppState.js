@@ -5,6 +5,7 @@ class AppState extends EventEmitter {
   user = {}
   profile = {}
   comments = []
+  posts = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {
