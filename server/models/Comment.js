@@ -17,4 +17,5 @@ Comment.virtual('post', {
   foreignField: '_id',
   justOne: true
 })
+
 export default Comment

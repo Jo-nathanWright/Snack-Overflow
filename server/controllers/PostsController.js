@@ -34,7 +34,7 @@ export class PostsController extends BaseController {
 
   async getCommentsByPost(req, res, next) {
     try {
-      const comments = await commentsService.getAll({ postsId: req.params.id })
+      const comments = await commentsService.getAll({ postId: req.params.id })
       res.send(comments)
     } catch (error) {
       next(error)
