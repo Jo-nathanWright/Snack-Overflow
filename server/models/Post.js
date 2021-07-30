@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 
 const Post = new Schema(
   {
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    votes: { type: Number, required: true, default: 0 }
     // creatorId: { type: ObjectId, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }

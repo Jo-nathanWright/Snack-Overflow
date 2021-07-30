@@ -1,3 +1,4 @@
+import { commentsService } from '../services/CommentsService'
 import { postsService } from '../services/PostsService'
 import BaseController from '../utils/BaseController'
 
@@ -7,6 +8,7 @@ export class PostsController extends BaseController {
     this.router
       .get('', this.getAll)
       .get('/:id', this.getById)
+      .get('/:id/comments', this.getCommentsByPost)
       .post('', this.create)
       .put('/:id', this.edit)
       .delete('/:id', this.destroy)
@@ -25,6 +27,15 @@ export class PostsController extends BaseController {
     try {
       const post = await postsService.getById(req.params.id)
       res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getCommentsByPost(req, res, next) {
+    try {
+      const comments = await commentsService.getAll({ postsId: req.params.id })
+      res.send(comments)
     } catch (error) {
       next(error)
     }
