@@ -1,24 +1,34 @@
 import { BadRequest } from '../utils/Errors'
+import { dbContext } from '../db/DbContext'
 
 class PostsService {
-  getAll(query) {
-    throw new Error('Method not implemented.')
+  getAll(query = {}) {
+    return dbContext.Post.find(query)
   }
 
   getById(id) {
-    throw new Error('Method not implemented.')
+    const post = dbContext.Post.findById(id)
+    if (!post) {
+      throw new BadRequest('Invalid Post ID')
+    }
+    return post
   }
 
   create(body) {
-    throw new Error('Method not implemented.')
+    return dbContext.Post.create(body)
   }
 
   edit(body) {
-    throw new Error('Method not implemented.')
+    const post = dbContext.Post.findByIdAndUpdate(body.id, body, { new: true, runValidators: true })
+    if (!post) {
+      throw new BadRequest('Invalid Post ID')
+    }
+    return post
   }
 
   destroy(id) {
-    throw new Error('Method not implemented.')
+    this.getById(id)
+    return dbContext.Post.findByIdAndDelete(id)
   }
 }
 
