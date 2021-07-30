@@ -18,7 +18,7 @@ class PostsService {
     return await dbContext.Post.create(body)
   }
 
-  async edit(body) {
+  async vote(body) {
     const post = await dbContext.Post.findByIdAndUpdate(body.id, body, { new: true, runValidators: true })
     if (!post) {
       throw new BadRequest('Invalid Post ID')
