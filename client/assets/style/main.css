@@ -10696,6 +10696,11 @@ main {
   flex-grow: 1;
 }
 
+.sideImage {
+  background-image: url(https://i.pinimg.com/originals/78/91/b1/7891b1e22978bb303c959d7d698bca6c.gif);
+
+}
+
 .bunHead {
   border-top-left-radius: 50%;  
   border-top-right-radius: 50%; 
@@ -10727,6 +10732,16 @@ main {
   background-size: cover;
   border-radius: 5%;  
  
+}
+.lettuceTopping {
+  background-image: url(https://media.istockphoto.com/photos/surface-of-the-cheese-picture-id470148025?k=6&m=470148025&s=612x612&w=0&h=jn3UkbeI5BAIoqzMBx1EYi2VRR_jvJgJLfh-x1FXQdM=);
+  background-size: cover;
+  border-radius: 5%;  
+ 
+}
+
+.imgFlip {
+  rotate: 180;
 }
 
 

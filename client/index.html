@@ -46,16 +46,31 @@
             <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
         </nav>
     </header>
-    <main class="container-fluid bg-secondary">
+    <main class="container-fluid sideImage">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3 ">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Wassup</h1>
+                        <div class="row">
+                            <div class="col-md-12 text-center text-light bg-info">
+                                <h4>What are you Doing?</h4>
+                            </div>
+                        </div>
+                        <div class="row form-group shadow-light d-flex justify-content-center my-1">
+                            <form onsubmit="app.listsController.createPost()" class="d-flex flex-wrap ">
+                                <div class="mx-2 my-3 d-flex align-items-end mb-1">
+                                    <input type="text" name="post" placeholder="Post..." id="post" required
+                                        minlength="3" maxlength="">
+                                </div>
+                                <div class="mx-2 my-3">
+                                    <button class="btn btn-success" type="submit">Post</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row d-flex justify-content-center">
@@ -77,10 +92,15 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-12"><img src="/client/assets/img/dorito.png"
-                                                            alt=""></div>
-                                                    <div class="col-md-12"><img src="/client/assets/img/dorito2.jpg"
-                                                            alt=""></div>
+                                                    <div class="col-md-12"><button class="w-100 bg-transparent"><img
+                                                                src="./assets/img/dorito3.png" alt=""
+                                                                class="w-100 imgFlip"></button>
+                                                    </div>
+                                                    <div class="col-md-12"><button class="w-100 bg-transparent"><img
+                                                                src="./assets/img/dorito.png" alt=""
+                                                                class="w-100"></button>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -88,7 +108,7 @@
                                     <div class="col-md-1">
                                         <p>0</p>
                                     </div>
-                                    <div class="col-md-9 text-dark d-flex text-wrap">
+                                    <div class="col-md-9 text-dark text-break">
                                         <p> I would vote for you to get a bag of doritos lorem epsum lorem epsum lorem
                                             epsum lorem epsum lorem epsmdklfanlf;ndsalkjflkasdjf;iasdnfoinsafjdsakl;fjl
                                         </p>
@@ -99,7 +119,7 @@
 
                                         <select class="form-select my-3" id="color"
                                             onchange="this.style.backgroundColor = this.value">
-                                            <option value="darkmagenta" style="background: darkmagenta">Purple</option>
+                                            <option class="cheeseTopping">Cheese</option>
                                             <option value="deeppink" style="background: deeppink">Pink</option>
                                             <option value="deepskyblue" style="background: deepskyblue">SkyBlue</option>
                                             <option value="lime" style="background: lime">Lime</option>
@@ -108,7 +128,7 @@
                                         </select>
                                         <div class="mx-2 my-3 d-flex align-items-end mb-1">
                                             <input type="text" name="comment" placeholder="comment..." id="comment"
-                                                required minlength="3" maxlength="100">
+                                                required minlength="3" maxlength="">
                                         </div>
                                         <div class="mx-2 my-3">
                                             <button class="btn btn-success" type="submit">Create</button>
