@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-export const Comment = new Schema(
+const Comment = new Schema(
   {
     imgUrl: { type: String },
     description: { type: String, required: true },
@@ -11,3 +11,5 @@ export const Comment = new Schema(
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
+
+export default Comment
