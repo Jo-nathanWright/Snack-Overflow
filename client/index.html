@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="row form-group shadow-light d-flex justify-content-center my-1">
-                            <form onsubmit="app.listsController.createPost()" class="d-flex flex-wrap ">
+                            <form onsubmit="app.postsController.createPost(event)" class="d-flex flex-wrap ">
                                 <div class="mx-2 my-3 d-flex align-items-end mb-1">
                                     <input type="text" name="post" placeholder="Post..." id="post" required
                                         minlength="3" maxlength="">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="row">
+                <div class="row" id="posts">
                     <div class="col-md-12">
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-6 bg-dark">

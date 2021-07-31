@@ -5,6 +5,7 @@ class AppState extends EventEmitter {
   user = {}
   profile = {}
   comments = []
+  //* * @type {Post[]} */
   posts = []
 }
 

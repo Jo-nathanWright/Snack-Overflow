@@ -6,7 +6,8 @@ const Comment = new Schema(
   {
     imgUrl: { type: String },
     description: { type: String, required: true },
-    postId: { type: ObjectId, ref: 'Post', required: true }
+    postId: { type: ObjectId, ref: 'Post', required: true },
+    votes: { type: Number, default: 0 }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
