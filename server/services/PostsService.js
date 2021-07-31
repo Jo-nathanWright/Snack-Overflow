@@ -26,9 +26,12 @@ class PostsService {
     return post
   }
 
-  async destroy(id) {
-    await this.getById(id)
-    return await dbContext.Post.findByIdAndDelete(id)
+  async destroy(id, user) {
+    const post = await this.getById(id)
+    if (user.id === post.creatorId.toString()) {
+      await this.getById(id)
+      return await dbContext.Post.findByIdAndDelete(id)
+    }
   }
 }
 

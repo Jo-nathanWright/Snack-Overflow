@@ -1,18 +1,20 @@
 import Comment from '../Models/Comment.js'
+import { ProxyState } from '../AppState.js'
 
 export default class Post {
-  constructor({ description, creatorId, _id, votes }) {
+  constructor({ description, creatorId, _id, votes, name }) {
     this.description = description
     this.creatorId = creatorId
     this.id = _id
     this.votes = votes || 0
+    this.name = name
   }
 
   get Template() {
     return `
-      <div class="col-md-12">
+      <div class="col-md-12 mt-3">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-6 bg-dark">
+            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12 bunHead">
                         <div class="row d-flex justify-content-center">
@@ -77,7 +79,8 @@ export default class Post {
                 </div>
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-12 d-flex justify-content-center bunFooter">
-                        <h6>Creator Name</h6>
+                        <h6>${this.name}</h6>
+                        <button class="btn btn-danger ${this.creatorId === ProxyState.profile.id ? '' : 'hidden'}" onclick="app.postsController.destroyPost('${this.id}')" >DELETE</button>
                     </div>
                 </div>
             </div>

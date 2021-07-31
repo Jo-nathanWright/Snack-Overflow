@@ -45,6 +45,8 @@ export class PostsController extends BaseController {
 
   async create(req, res, next) {
     try {
+      const user = req.userInfo
+      req.body.creatorId = user.id // DONT FORGET THIS LINE
       const post = await postsService.create(req.body)
       res.send(post)
     } catch (error) {
@@ -65,7 +67,8 @@ export class PostsController extends BaseController {
 
   async destroy(req, res, next) {
     try {
-      await postsService.destroy(req.params.id)
+      const user = req.userInfo
+      await postsService.destroy(req.params.id, user)
       res.send({ message: 'Successfully deleted that post!' })
     } catch (error) {
       next(error)

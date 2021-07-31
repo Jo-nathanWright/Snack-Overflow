@@ -14,6 +14,11 @@ class PostsService {
     console.log(res.data)
     ProxyState.posts = [...ProxyState.posts, new Post(res.data)]
   }
+
+  async destoryPost(id) {
+    await api.delete('posts/' + id)
+    ProxyState.posts = ProxyState.posts.filter(p => p.id !== id)
+  }
 }
 
 export const postsService = new PostsService()

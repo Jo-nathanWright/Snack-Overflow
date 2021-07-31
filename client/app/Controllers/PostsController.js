@@ -31,10 +31,20 @@ export default class PostController {
       const form = event.target
       const rawPost = {
         description: form.post.value,
-        creatorId: ProxyState.profile.id
+        creatorId: ProxyState.profile.id,
+        name: ProxyState.profile.name
       }
+      console.log(Proxy)
       await postsService.createPost(rawPost)
       form.reset()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async destroyPost(id) {
+    try {
+      await postsService.destoryPost(id)
     } catch (error) {
       console.log(error)
     }
